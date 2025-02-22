@@ -1,9 +1,9 @@
 package com.demonstrate_rest_api.rest_api.controller;
-
-import org.springframework.stereotype.Controller;
+import com.demonstrate_rest_api.rest_api.User;
+import org.springframework.boot.context.annotation.UserConfigurations;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/hello")
 class RestControllerAPI {
 
@@ -25,5 +25,10 @@ class RestControllerAPI {
         return "Hello " + name + " from BridgeLabz";
 
         //http://localhost:8080/hello/UC3/adarsh
+    }
+
+    @PostMapping("/UC4")
+    public String greetUser(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
