@@ -31,4 +31,12 @@ class RestControllerAPI {
     public String greetUser(@RequestBody User user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
+
+    @PutMapping("/UC5/{firstName}")
+    public String greetUser(
+            @PathVariable String firstName, // Extract firstName from the path
+            @RequestParam String lastName   // Extract lastName from the query parameter
+    ) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 }
